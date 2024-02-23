@@ -87,21 +87,21 @@ void StrList_insertAt(StrList* StrList, const char* data, int index) {
         new_N->next = StrList->head;
         StrList->head = new_N;
     } else {
-        struct Node *current = StrList->head;
+        struct Node *temp = StrList->head;
         int count = 0;
 
-        while (current != NULL && count < index - 1) {
-            current = current->next;
+        while (temp != NULL && count < index - 1) {
+            temp = temp->next;
             count++;
         }
 
-        if (current == NULL) {
+        if (temp == NULL) {
             free(new_N->data);
             free(new_N);
             return;
         }
-        new_N->next = current->next;
-        current->next = new_N;
+        new_N->next = temp->next;
+        temp->next = new_N;
     }
     StrList->size++;
 }
@@ -132,12 +132,12 @@ void StrList_print(const StrList* StrList) {
     }
 
     buffer[0] = '\0';
-    struct Node* current = StrList->head;
+    struct Node* temp = StrList->head;
 
-    while (current != NULL) {
-        strcat(buffer, current->data);
+    while (temp != NULL) {
+        strcat(buffer, temp->data);
         strcat(buffer, " ");
-        current = current->next;
+        temp = temp->next;
     }
 
     printf("%s\n", buffer);
