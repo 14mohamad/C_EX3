@@ -3,7 +3,7 @@
 #include <string.h>
 #include "StrList.h"
 
-#define Max_Size_Str 100
+#define Str_Size 100
 
 void buildList(StrList* StrList, int length, char* str);
 
@@ -23,7 +23,7 @@ int main() {
                 int length;
                 scanf("%d", &length);
 
-                char* str = (char*)malloc((Max_Size_Str + 1) * length);
+                char* str = (char*)malloc((Str_Size + 1) * length);
                 scanf(" %[^\n]", str);
 
                 buildList(strlist, length, str);
@@ -35,7 +35,7 @@ int main() {
                 int index;
                 scanf("%d", &index);
 
-                char* str = (char*)malloc(Max_Size_Str + 1);
+                char* str = (char*)malloc(Str_Size + 1);
                 scanf(" %s", str);
 
                 StrList_insertAt(strlist, str, index);
@@ -63,7 +63,7 @@ int main() {
                 break;
             }
             case 7: {
-                char* str = (char*)malloc(Max_Size_Str + 1);
+                char* str = (char*)malloc(Str_Size + 1);
                 scanf(" %s", str);
 
                 printf("%d\n", StrList_count(strlist, str));
@@ -72,7 +72,7 @@ int main() {
                 break;
             }
             case 8: {
-                char* str = (char*)malloc(Max_Size_Str + 1);
+                char* str = (char*)malloc(Str_Size + 1);
                 scanf(" %s", str);
 
                 StrList_remove(strlist, str);
